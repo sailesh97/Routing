@@ -2,9 +2,18 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Servers</a></li>
-        <li role="presentation"><a href="#">Users</a></li>
+        <li role="presentation" class="active"><a href="/">Home</a></li>
+        <li role="presentation"><a href="/servers">Servers</a></li>
+        <li role="presentation"><a href="/users">Users</a></li>
+        <!-- 
+          So here we have mentioned the path in href attribute like we used to do and it works file in loading the components. 
+
+          But the difference you will  notice if you observe the refresh icon in our URL bar. Whenever we click on a link, it refreshes the app which is not the behaviour of a SPA. 
+          SPAs are only loaded once.
+
+          It restarts the app on every click. 
+          By refreshing, we lost the state of application and it'a completely new fresh application.
+        -->
       </ul>
     </div>
   </div>
