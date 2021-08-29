@@ -1,0 +1,14 @@
+Javascript frameworks like Angular & React are used to make a single page applications.
+
+Single Page application as we discussed before, will have only one html files which will be served by your server with a bunch of javascript dynamically injected by webpack or any bundler to it.
+
+One thing worth noticing here is, while using a single page application, the refresh icon in url bar never spins again after the page loaded for 1st time. As in SPAs we're not requesting for any other page or HTML file to server.
+
+But what if you want to make the user feel like he's using a multi-page traditional application. Let say when user clicks on "About" section in nav bar, you want your URL to changed to localhost:4200/About
+
+Angular ships with a routing package to achieve this kind of behaviour. By this we can portray to user a experience the behavious he used to get always from Multi-page application from very old time.
+
+And with that we can show or hide different views on screen using the huge JS bundle we injected in our HTML page.
+
+By this to user it will look like a new page is loaded as the url changed, but behind the scenes it's js changing the DOM.
+
