@@ -1,0 +1,39 @@
+You'll see this in all the directives:
+
+When you use brackets, it means you're passing a bindable property (a variable).
+
+  <a [routerLink]="routerLinkVariable"></a>
+So this variable (routerLinkVariable) could be defined inside your class and it should have a value like below:
+
+export class myComponent {
+
+    public routerLinkVariable = "/home"; // the value of the variable is string!
+But with variables, you have the opportunity to make it dynamic right?
+
+export class myComponent {
+
+    public routerLinkVariable = "/home"; // the value of the variable is string!
+
+
+    updateRouterLinkVariable(){
+
+        this.routerLinkVariable = '/about';
+    }
+Where as without brackets you're passing string only and you can't change it, it's hard coded and it'll be like that throughout your app.
+
+<a routerLink="/home"></a>
+UPDATE :
+
+The other speciality about using brackets specifically for routerLink is that you can pass dynamic parameters to the link you're navigating to:
+
+So adding a new variable
+
+export class myComponent {
+        private dynamicParameter = '129';
+        public routerLinkVariable = "/home"; 
+Updating the [routerLink]
+
+  <a [routerLink]="[routerLinkVariable,dynamicParameter]"></a>
+When you want to click on this link, it would become:
+
+  <a href="/home/129"></a>
