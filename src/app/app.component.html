@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a routerLink="/">Home</a></li>
-        <li role="presentation"><a routerLink="/servers">Servers</a></li>
-        <li role="presentation"><a [routerLink]="['/users']">Users</a></li>
-        <li role="presentation"><a [routerLink]="['/users', '/something']">Users2</a></li>
+        <li role="presentation" routerLinkActive="active myActive" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
+        <li role="presentation" routerLinkActive="active myActive"><a routerLink="/servers">Servers</a></li>
+        <li role="presentation" routerLinkActive="active myActive"><a [routerLink]="['/users']">Users</a></li>
+        <!-- <li role="presentation" routerLinkActive="active myActive"><a [routerLink]="['/users', 'something']">Users2</a></li> -->
         <!-- 
           So here we have mentioned the path in href attribute like we used to do and it works file in loading the components. 
 

@@ -12,3 +12,33 @@ And with that we can show or hide different views on screen using the huge JS bu
 
 By this to user it will look like a new page is loaded as the url changed, but behind the scenes it's js changing the DOM.
 
+------------------------------------------------------------------------------------
+
+Previously,:
+<li role="presentation" class="active"><a routerLink="/">Home</a></li>
+<li role="presentation"><a routerLink="/servers">Servers</a></li>
+<li role="presentation"><a [routerLink]="['/users']">Users</a></li>
+<li role="presentation"><a [routerLink]="['/users', '/something']">Users2</a></li>
+
+Here the class="active" is attached to 1st li and it's not getting changed even after clicking on other tabs. 
+It's a css thing we need to fix here.
+
+The active class used here is from bootstrap. We could implement our own styling of bootstrap's active class as well.
+
+So to apply the active class dynamically Angular gives us a special directive called routerLinkActive
+
+The value of the routerLinkActive is the css class name you want to apply to the tab which is active.
+
+When the activated tab changes, it removes the css class from previously active element and applies to current active element
+
+routerLinkActive can be hooked into the link element or to the parent of the link component also.
+
+But as bootstrap's active class need to be applied on parent of the link eleemnt, 
+we need to hook the routerLinkActive to the parent element.
+
+As our 1st link is "" (empty string -- for home component), routerLinkActive doesn't match the exact path
+We need to add another config ie;
+[routerLinkActiveOptions] = "{exact: true}"
+
+Which ensures the active class will applied to 1st link (""), only when it's a exact match 
+and not any url starting with "/".
