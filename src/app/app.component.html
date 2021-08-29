@@ -10,6 +10,11 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <app-home></app-home>
     </div>
   </div>
@@ -22,5 +27,34 @@
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <app-servers></app-servers>
     </div>
-  </div>
+  </div> -->
 </div>
+
+<!--
+  Here we're loading all the components. It would be better if we will load only one component at first and will load the other components dynamically when the tabs are clicked.
+  We can change the URL as well when a new tab clicked.
+
+  To do that we need to register the routes in our application.
+  So where should we register in our app?
+  It's in app.module.ts
+
+  As the routes we will register will be responsible for the whole application.
+  Everywhere in our application, if we'll go to "/users", we want to load the users component as the main view in our application
+
+  We also add all our components in app.module, So it will be a good place to register our routes here as well.
+-->
+
+<!--
+  After registering the routes in app.module, Angular determines which route should be selected and what action to take or what to render in our screen when a particular route is selected.
+  But it does not where should it render the selected view.
+
+  To make Angular understand that, instead of mentioning all the selector in our template file (Which is now handled in array of routes in app.module.),
+  We just need to mention a directive i.e; router-outlet.
+
+  So whatever route is seleced from array of routes, the action need to be taken where Angular finds this router-outlet directive.
+
+  In this way we can show the selected route instead of all the components.
+
+  By this much changes it works, if you'll visit, localhost:4200, localhost:4200/users, localhost:4200/servers:
+  you can see. But somehow the links needs to be fixed.
+-->
