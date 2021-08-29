@@ -15,7 +15,8 @@ import { ServersService } from './servers/servers.service';
 const appRoutes: Routes = [
   {path: "", component: HomeComponent},// Will be selected when localhost:4200
   {path: "users", component: UsersComponent}, //when localhost:4200/users
-  {path: "servers", component: ServersComponent} // when localhost:4200/servers
+  {path: "servers", component: ServersComponent}, // when localhost:4200/servers
+  {path: "users/something", component: UsersComponent}
 ];
 @NgModule({
   declarations: [

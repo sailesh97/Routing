@@ -2,9 +2,10 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="/">Home</a></li>
-        <li role="presentation"><a href="/servers">Servers</a></li>
-        <li role="presentation"><a href="/users">Users</a></li>
+        <li role="presentation" class="active"><a routerLink="/">Home</a></li>
+        <li role="presentation"><a routerLink="/servers">Servers</a></li>
+        <li role="presentation"><a [routerLink]="['/users']">Users</a></li>
+        <li role="presentation"><a [routerLink]="['/users', '/something']">Users2</a></li>
         <!-- 
           So here we have mentioned the path in href attribute like we used to do and it works file in loading the components. 
 
@@ -51,6 +52,29 @@
   Everywhere in our application, if we'll go to "/users", we want to load the users component as the main view in our application
 
   We also add all our components in app.module, So it will be a good place to register our routes here as well.
+-->
+
+<!--
+  Solution:
+  There's another special directive called: "routerLink". It handles the click event on links differently.
+ 
+  routerLink can be used as property binding as well.
+
+  If we used the property-binding style: we can't pass it's value directly as we passed in the non-propertyBinding style. Because If we pass so, Angular will try to find a property named routerLink as a native property of HTML's a element.
+  So it will throw error as it won't find any property named like that.
+
+  So to avoid any error it's better to use an array as value of routerLink, 
+  when it's used with the property binding syntax.
+
+  The array syntax gives us more fine-grained control over routerLink.
+
+  If used like an array, we can specify all segments of your path as elements in your array.
+
+  ["/users"] ---------                localhost:4200/users
+  ["/users", "something"]------------ localhost:4200/users/something
+  More details will be discussed later.
+
+  Go through this: https://stackoverflow.com/questions/41370760/difference-between-routerlink-and-routerlink
 -->
 
 <!--
